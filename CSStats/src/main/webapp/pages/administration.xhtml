@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/pages/template/layout.xhtml">
+
+		<ui:define name="content">
+			<h:form enctype="multipart/form-data">		
+				<p:remoteCommand name="triggerUploadComplete" action="#{adminBean.groupUploadFiles}"/>
+					
+				<p:tabView orientation="left">
+					<p:tab title="#{msg['admin.tab.upload']}">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:fileUpload fileUploadListener="#{adminBean.handleFileUpload}"
+								mode="advanced" dragDropSupport="false" multiple="true"
+								update="messages" sizeLimit="10000000"
+								allowTypes="/(\.|\/)(log)$/" 
+								oncomplete="triggerUploadComplete()"/>
+							<p:growl id="messages" showDetail="true" />
+							<h:outputText value="#{msg['admin.tab.upload.text']}" />
+						</h:panelGrid>						
+					</p:tab>
+				</p:tabView>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

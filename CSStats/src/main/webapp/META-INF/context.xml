@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+	<ResourceLink global="jdbc/csstats" name="jdbc/csstats"
+		type="javax.sql.DataSource" />
+</Context>
