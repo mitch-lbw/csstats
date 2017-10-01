@@ -1,0 +1,28 @@
+{
+  "realm": "csstats",
+  "auth-server-url": "http://localhost:18080/auth",
+  "ssl-required": "external",
+  "resource": "csstats",
+  "credentials": {
+    "secret": "d1701b2d-125c-4a95-8e98-5269aa4609a7"
+  },
+ "policy-enforcer": {
+    "user-managed-access" : {},
+    "enforcement-mode" : "ENFORCING",
+    "paths": [
+      {
+      	"name":"view",
+        "path" : "/pages/*"        
+      },
+      {
+        "name" : "administration",
+        "path" : "/pages/administration*",
+        "methods" : [
+          {
+            "method": "GET"           
+          }
+        ]
+      }      
+    ]
+  }
+}

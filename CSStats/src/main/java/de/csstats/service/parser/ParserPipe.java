@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import de.csstats.common.exception.ErrorCode;
 import de.csstats.common.exception.ParsingException;
+import de.csstats.service.parser.impl.ChangedMapParser;
 import de.csstats.service.parser.impl.LoadedMapParser;
 import de.csstats.service.parser.impl.TimestampParser;
 
@@ -18,6 +19,7 @@ public class ParserPipe {
 	public ParserPipe() {
 		tsParser = new TimestampParser();
 		parsers.add(new LoadedMapParser());
+		parsers.add(new ChangedMapParser());
 	}
 
 	public boolean parse(final ParsingContext context, final String line) throws ParsingException {
